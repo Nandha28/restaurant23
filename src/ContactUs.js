@@ -1,4 +1,4 @@
-// ContactUs.js
+
 import React, { useState } from 'react';
 import { styled } from '@mui/system';
 
@@ -53,6 +53,8 @@ const SubmitButton = styled('button')({
   },
 });
 
+
+
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -60,6 +62,8 @@ const ContactUs = () => {
     subject: '',
     message: '',
   });
+
+  const [showThanksMessage, setShowThanksMessage] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,47 +75,54 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+ 
     console.log('Form submitted:', formData);
-    // You can add logic to send the form data to your backend or handle it as needed
+
+    setShowThanksMessage(true);
   };
 
   return (
     <RootContainer>
       <h1>Contact Us</h1>
-      <p>We would love to hear from you! Feel free to reach out through the following contact methods:</p>
-      {/* Your contact details here */}
-      <p>Alternatively, you can use the contact form below to send us a message:</p>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <Input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <Input
-          type="text"
-          name="subject"
-          placeholder="Subject"
-          value={formData.subject}
-          onChange={handleChange}
-        />
-        <Textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </Form>
+      {showThanksMessage ? (
+        <p>Thanks for Your Contact!</p>
+      ) : (
+        <>
+          <p>We would love to hear from you! Feel free to reach out through the following contact methods:</p>
+          {/* Your contact details here */}
+          <p>Alternatively, you can use the contact form below to send us a message:</p>
+          <Form onSubmit={handleSubmit}>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <Input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+            <Textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            <SubmitButton type="submit">Submit</SubmitButton>
+          </Form>
+        </>
+      )}
     </RootContainer>
   );
 };

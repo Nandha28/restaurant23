@@ -1,4 +1,4 @@
-// Footer.js
+
 import React from 'react';
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
   );
 };
 
-// Styles
+
 const footerStyle = {
   backgroundColor: '#333',
   color: '#fff',

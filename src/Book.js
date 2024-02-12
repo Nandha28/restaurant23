@@ -7,9 +7,9 @@ import {
   Button,
   CardActionArea,
   CardActions,
+  Grid,
   Box,
 } from '@mui/material';
-
 
 const cardData = [
   {
@@ -40,37 +40,84 @@ const cardData = [
     buttonText: 'BOOK',
     image: 'https://pbs.twimg.com/profile_images/1009360907669946368/3LMJLw2E_400x400.jpg', 
   },
+  {
+    title: 'STREET ARABIYA',
+    description:
+      'The aromatic and savory Mandi Biryani is a signature dish that captivates taste buds with its unique blend of spices and tender meat, making Street Arabia a go-to destination for food enthusiasts in Coimbatore.',
+    buttonText: 'BOOK',
+    image: 'https://lh5.googleusercontent.com/p/AF1QipOcLxuMWcDRE5Gu6Si2Y-6GGpk6Z2ZMXYlscTCX',
+  },
+  {
+    title: 'AMMAYI VEEDU POT COOK',
+    description:
+      'Ammayi Veedu Pot Cook is a renowned restaurant celebrated for its diverse menu offering both vegetarian and non-vegetarian delicacies.',
+    buttonText: 'BOOK',
+    image: 'https://10619-2.s.cdn12.com/rests/original/107_523875964.jpg', 
+  },
+  {
+    title: 'SHREE ANANDHAAS',
+    description:
+      'Spacious restaurant offering the unique specialties of southern India in a lively casual space.',
+    buttonText: 'BOOK',
+    image: 'https://opaldesignstudio.com/wp-content/uploads/2019/03/019-1002x480.jpg', 
+  },
+  {
+    title: 'HMR HOTEL MUTHUROWTHER',
+    description:
+      'Cafe-style Indian restaurant specialising in parathas and biryanis.',
+    buttonText: 'BOOK',
+    image: 'https://lh3.googleusercontent.com/oxXQEUd7DDv_MzP3QTmkZJBPMcEQcdllGmluuPovLfQlWESECUamld622mDWAGd4WarsGQAxDgZLLJqEGsfdc1tzVGs=w1200-rw', 
+  },
  
 ];
 
+const backgroundStyle = {
+ backgroundColor:'gray',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  minHeight: '100vh', // Set the minimum height to cover the full viewport height
+};
+
 export default function Book() {
+  const rows = [];
+  for (let i = 0; i < cardData.length; i += 4) {
+    const row = cardData.slice(i, i + 4);
+    rows.push(row);
+  }
+
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', height: '60vh', alignItems: 'center', justifyContent: 'center', padding: '80px' }}>
-      {cardData.map((card, index) => (
-        <Card sx={{ maxWidth: 345, m: 2, background: 'linear-gradient(#eacda3, #d6ae7b)' }} key={index}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={card.image}
-              alt={card.title}
-              
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {card.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {card.description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              {card.buttonText}
-            </Button>
-          </CardActions>
-        </Card>
+    <Box sx={{ ...backgroundStyle, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '100px' }}>
+      {rows.map((row, rowIndex) => (
+        <Grid container spacing={2} key={rowIndex}>
+          {row.map((card, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Card sx={{ maxWidth: 345, background: '#FFFACD' }}>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={card.image}
+                    alt={card.title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {card.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {card.description}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    {card.buttonText}
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       ))}
     </Box>
   );

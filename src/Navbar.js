@@ -1,4 +1,4 @@
-// Navbar.js
+
 import React from 'react';
 
 
@@ -17,16 +17,16 @@ class Navbar extends React.Component {
 
   render() {
     const navStyle = {
-      backgroundColor: 'ORANGE',
+      backgroundColor: 'orange',
       padding: '10px',
       display: 'flex',
       justifyContent: 'space-between', // Distribute space between logo and links
-      alignItems: 'center', // Center items vertically
+      alignItems: 'center', 
     };
 
     const logoStyle = {
-      width: '50px', // Adjust the width of your logo
-      height: 'auto', // Maintain the aspect ratio
+      width: '50px', 
+      height: 'auto', 
     };
 
     const ulStyle = {
@@ -37,18 +37,18 @@ class Navbar extends React.Component {
     };
 
     const liStyle = {
-      marginLeft: '20px', // Adjust margin if needed
+      marginLeft: '20px', 
     };
 
     const linkStyle = {
       textDecoration: 'none',
       color: 'white',
       fontWeight: 'bold',
-      transition: 'color 0.3s ease', // Transition for color change
+      transition: 'color 0.3s ease', 
     };
 
     const activeLinkStyle = {
-      color: 'white', // Change to white for the active link
+      color: 'white',
     };
     const containerStyle = {
       display: 'flex',
@@ -56,17 +56,17 @@ class Navbar extends React.Component {
     };
 
     const userProfileImageStyle = {
-      width: '30px', // Adjust the width of your user profile image
-      height: '30px', // Adjust the height of your user profile image
-      borderRadius: '50%', // Make it circular
-      cursor: 'pointer', // Change cursor to pointer on hover
+      width: '30px', 
+      height: '30px', 
+      borderRadius: '50%', 
+      cursor: 'pointer', 
     };
 
     return (
       <nav style={navStyle}>
         <div style={containerStyle}> 
            
-          {/* Logo with a link to the home page */}
+         
           <img src="https://www.sosfactory.com/wp-content/uploads/2016/12/mr-bolat-mascot-min.png" alt="Logo" style={logoStyle} />
           <a href="/" style={{ ...linkStyle, ...(this.state.clickedLink === 'RESTORAN' && activeLinkStyle) }}
               onClick={() => this.handleLinkClick('RESTORAN')}
@@ -112,11 +112,15 @@ class Navbar extends React.Component {
               BOOK A TABLE |
             </a>
           </li>
+          <li style={liStyle}>
+           
+          </li>
+
           {/* User profile image */}
           <li style={liStyle}>
             <a href="/profile" style={linkStyle}>
               <img
-                src="https://static.wikia.nocookie.net/20thcenturyfox/images/a/a7/Robert.jpg/revision/latest?cb=20220117143156" // Adjust the path to your user profile image
+                src={userProfileImageStyle.picture}
                 alt="User Profile"
                 style={userProfileImageStyle}
               />

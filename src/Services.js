@@ -10,14 +10,14 @@ const cardData = [
   {
     title: 'Restaurant Booking',
     description: 'Book a table at Annapoorna, a vegetarian restaurant in Coimbatore.',
-    image: '/static/images/cards/contemplative-reptile.jpg',
+    image: 'https://img.freepik.com/premium-photo/table-reserved-customers_274689-40582.jpg',
     buttonText: 'BOOK NOW',
     link: '/book',
   },
   {
     title: 'Hotels',
     description: 'Explore our list of hotels for a comfortable stay.',
-    image: '/static/images/cards/contemplative-reptile.jpg',
+    image: 'https://wallpaperbat.com/img/729584-restaurants-wallpaper-top-free-restaurants-background.jpg',
     buttonText: 'VIEW ',
     link: '/menu',
     
@@ -25,7 +25,7 @@ const cardData = [
   {
     title: '24*7 Customer Care',
     description: 'Contact our customer care for any assistance.',
-    image: '/static/images/cards/contemplative-reptile.jpg',
+    image: 'https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     buttonText: 'CONTACT US',
     link: '/ContactUs',
    
@@ -41,7 +41,7 @@ export default function Services() {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="140"
+                height="200"
                 image={card.image}
                 alt={card.title}
               />

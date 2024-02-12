@@ -31,6 +31,7 @@ const containerStyle = {
   margin: 'auto',
   padding: '20px',
   textAlign: 'center',
+ 
 };
 
 const headerStyle = {
@@ -47,6 +48,7 @@ const descriptionStyle = {
 const signatureStyle = {
   fontWeight: 'bold',
   fontStyle: 'italic',
+  
 };
 
 export default AboutUsPage;
